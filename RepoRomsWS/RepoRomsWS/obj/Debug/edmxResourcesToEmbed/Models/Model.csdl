@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RomsWSBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Consola">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Emus" Relationship="Self.FK_Emus_Consolas" FromRole="Consolas" ToRole="Emus" />
+    <NavigationProperty Name="Roms" Relationship="Self.FK_Roms_Consolas" FromRole="Consolas" ToRole="Roms" />
+  </EntityType>
+  <EntityType Name="Emu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="info" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="consolaId" Type="Int32" Nullable="false" />
+    <Property Name="PlataformaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Consola" Relationship="Self.FK_Emus_Consolas" FromRole="Emus" ToRole="Consolas" />
+    <NavigationProperty Name="Plataforma" Relationship="Self.FK_Emus_Plataformas" FromRole="Emus" ToRole="Plataformas" />
+  </EntityType>
+  <EntityType Name="Plataforma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Emus" Relationship="Self.FK_Emus_Plataformas" FromRole="Plataformas" ToRole="Emus" />
+  </EntityType>
+  <EntityType Name="Rom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sinopsis" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="consolaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Consola" Relationship="Self.FK_Roms_Consolas" FromRole="Roms" ToRole="Consolas" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Emus_Consolas">
+    <End Role="Consolas" Type="Self.Consola" Multiplicity="1" />
+    <End Role="Emus" Type="Self.Emu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consolas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Emus">
+        <PropertyRef Name="consolaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roms_Consolas">
+    <End Role="Consolas" Type="Self.Consola" Multiplicity="1" />
+    <End Role="Roms" Type="Self.Rom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consolas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Roms">
+        <PropertyRef Name="consolaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Emus_Plataformas">
+    <End Role="Plataformas" Type="Self.Plataforma" Multiplicity="1" />
+    <End Role="Emus" Type="Self.Emu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plataformas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Emus">
+        <PropertyRef Name="PlataformaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RomsContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Consolas" EntityType="Self.Consola" />
+    <EntitySet Name="Emus" EntityType="Self.Emu" />
+    <EntitySet Name="Plataformas" EntityType="Self.Plataforma" />
+    <EntitySet Name="Roms" EntityType="Self.Rom" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Emus_Consolas" Association="Self.FK_Emus_Consolas">
+      <End Role="Consolas" EntitySet="Consolas" />
+      <End Role="Emus" EntitySet="Emus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roms_Consolas" Association="Self.FK_Roms_Consolas">
+      <End Role="Consolas" EntitySet="Consolas" />
+      <End Role="Roms" EntitySet="Roms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Emus_Plataformas" Association="Self.FK_Emus_Plataformas">
+      <End Role="Plataformas" EntitySet="Plataformas" />
+      <End Role="Emus" EntitySet="Emus" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

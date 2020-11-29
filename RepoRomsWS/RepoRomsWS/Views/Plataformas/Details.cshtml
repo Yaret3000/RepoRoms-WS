@@ -1,0 +1,64 @@
+﻿@model RepoRomsWS.Models.Plataforma
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Plataforma</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+<h2>Emuladores disponibles de la plataforma</h2>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Info
+        </th>
+        <th>
+            Consola
+        </th>
+        <th>
+            Plataforma
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Emus)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.info)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consola.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plataforma.nombre)
+            </td>
+        </tr>
+    }
+
+</table>

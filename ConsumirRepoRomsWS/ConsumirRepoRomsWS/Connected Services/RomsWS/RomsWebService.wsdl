@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarRom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sinopsis" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cover" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="video" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="consolaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarRomResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EliminarRom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarRomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarRomResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DetalleRom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DetalleRomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DetalleRomResult" type="tns:cRom" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="cRom">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sinopsis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cover" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="video" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="consolaId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarRoms">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarRomsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarRomsResult" type="tns:ArrayOfCRom" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCRom">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cRom" nillable="true" type="tns:cRom" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarConsola">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarConsolaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarConsolaResult" type="tns:ArrayOfCConsola" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCConsola">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="cConsola" nillable="true" type="tns:cConsola" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="cConsola">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarRomSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarRom" />
+  </wsdl:message>
+  <wsdl:message name="AgregarRomSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarRomResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarRomSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarRom" />
+  </wsdl:message>
+  <wsdl:message name="EliminarRomSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarRomResponse" />
+  </wsdl:message>
+  <wsdl:message name="DetalleRomSoapIn">
+    <wsdl:part name="parameters" element="tns:DetalleRom" />
+  </wsdl:message>
+  <wsdl:message name="DetalleRomSoapOut">
+    <wsdl:part name="parameters" element="tns:DetalleRomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarRomsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarRoms" />
+  </wsdl:message>
+  <wsdl:message name="ListarRomsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarRomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarConsolaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarConsola" />
+  </wsdl:message>
+  <wsdl:message name="ListarConsolaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarConsolaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RomsWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRom">
+      <wsdl:input message="tns:AgregarRomSoapIn" />
+      <wsdl:output message="tns:AgregarRomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRom">
+      <wsdl:input message="tns:EliminarRomSoapIn" />
+      <wsdl:output message="tns:EliminarRomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DetalleRom">
+      <wsdl:input message="tns:DetalleRomSoapIn" />
+      <wsdl:output message="tns:DetalleRomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRoms">
+      <wsdl:input message="tns:ListarRomsSoapIn" />
+      <wsdl:output message="tns:ListarRomsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsola">
+      <wsdl:input message="tns:ListarConsolaSoapIn" />
+      <wsdl:output message="tns:ListarConsolaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RomsWebServiceSoap" type="tns:RomsWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRom">
+      <soap:operation soapAction="http://tempuri.org/AgregarRom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRom">
+      <soap:operation soapAction="http://tempuri.org/EliminarRom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetalleRom">
+      <soap:operation soapAction="http://tempuri.org/DetalleRom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRoms">
+      <soap:operation soapAction="http://tempuri.org/ListarRoms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsola">
+      <soap:operation soapAction="http://tempuri.org/ListarConsola" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RomsWebServiceSoap12" type="tns:RomsWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarRom">
+      <soap12:operation soapAction="http://tempuri.org/AgregarRom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRom">
+      <soap12:operation soapAction="http://tempuri.org/EliminarRom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetalleRom">
+      <soap12:operation soapAction="http://tempuri.org/DetalleRom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRoms">
+      <soap12:operation soapAction="http://tempuri.org/ListarRoms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsola">
+      <soap12:operation soapAction="http://tempuri.org/ListarConsola" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RomsWebService">
+    <wsdl:port name="RomsWebServiceSoap" binding="tns:RomsWebServiceSoap">
+      <soap:address location="http://localhost:56889/RomsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RomsWebServiceSoap12" binding="tns:RomsWebServiceSoap12">
+      <soap12:address location="http://localhost:56889/RomsWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

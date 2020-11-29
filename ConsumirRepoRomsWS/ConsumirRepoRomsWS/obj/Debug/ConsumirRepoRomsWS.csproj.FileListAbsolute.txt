@@ -1,0 +1,16 @@
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\bin\Debug\ConsumirRepoRomsWS.exe.config
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\bin\Debug\ConsumirRepoRomsWS.exe
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\bin\Debug\ConsumirRepoRomsWS.pdb
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.Form1.resources
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.Properties.Resources.resources
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.exe
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.pdb
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\bin\Debug\Interop.ShockwaveFlashObjects.dll
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\bin\Debug\AxInterop.ShockwaveFlashObjects.dll
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\Interop.ShockwaveFlashObjects.dll
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\AxInterop.ShockwaveFlashObjects.dll
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.csproj.ResolveComReference.cache
+C:\Users\Usuario\source\repos\ConsumirRepoRomsWS\ConsumirRepoRomsWS\obj\Debug\ConsumirRepoRomsWS.frmAgregarRom.resources

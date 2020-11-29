@@ -1,0 +1,50 @@
+﻿@model RepoRomsWS.Models.Emu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle de emulador</h2>
+
+<div>
+    <h4>Emu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Consola.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consola.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plataforma.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plataforma.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

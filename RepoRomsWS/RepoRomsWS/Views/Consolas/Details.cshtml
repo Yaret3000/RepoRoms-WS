@@ -1,0 +1,78 @@
+﻿@model RepoRomsWS.Models.Consola
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles de consola</h2>
+
+<div>
+    <h4>Consola</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>
+
+<h2>Juegos disponibles de la consola</h2>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Sinopsis
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Url Video
+        </th>
+        <th>
+            Consola
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Roms)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sinopsis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.video)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consola.nombre)
+            </td>
+        </tr>
+    }
+
+</table>

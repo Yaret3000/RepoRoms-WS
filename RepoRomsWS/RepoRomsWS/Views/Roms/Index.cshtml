@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RepoRomsWS.Models.Rom>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Roms</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<p>
+    <a href="~/ReportViewers/ReportRoms.aspx">Generar reporte</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sinopsis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.video)
+        </th>
+        <th>
+            Consola
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sinopsis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.video)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Consola.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Detalle", "Details", new { id = item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id }) |
+            <a>Descargar</a>
+        </td>
+    </tr>
+}
+
+</table>
